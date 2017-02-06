@@ -7,9 +7,13 @@
             <button class="signIn btn waves-effect waves-light left" type="submit">
                 <i class="material-icons center">sign in</i>
             </button>
-            <button class="visiter btn red accent-1 waves-effect waves-light center" type="submit">
+            <!-- <button class="visiter btn red accent-1 waves-effect waves-light center" type="submit">
                 <i class="material-icons center">面试登记</i>
-            </button>
+            </button> -->
+            <router-link to="/addUser" tag="button" replace class="visiter btn red accent-1 waves-effect waves-light center" type="submit">
+                <i class="material-icons center">面试登记</i>
+            </router-link>
+
             <button class="signUp btn waves-effect waves-light right" type="submit">
                 <i class="material-icons center">sign up</i>
             </button>
