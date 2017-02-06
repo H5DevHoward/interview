@@ -814,7 +814,7 @@ export default {
         font-family: 'Material Icons';
         font-style: normal;
         font-weight: 400;
-        src: local("Material Icons"), local("MaterialIcons-Regular"), url("../assets/font/Material-Icons.woff") format("woff");
+        src: local("Material Icons"), local("MaterialIcons-Regular"), url("../assets/font/material-design-icons/Material-Icons.woff") format("woff");
     }
 
     .material-icons {
