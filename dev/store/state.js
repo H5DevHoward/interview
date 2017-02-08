@@ -1,0 +1,53 @@
+export default {
+    basic: {
+        name: '',
+        sex: '',
+        age: '',
+        nationality: '',
+        registeredResidence: '',
+        eMailAddress: '',
+        phoneNumber: '',
+        idNumber: '',
+        address: '',
+        positionApplyingFor: '',
+        exceptedSalay: '',
+        workExperience: '',
+        recentJobSalay: '',
+        startingData: '',
+        registeredAddress: '0',
+        options: [
+            {
+                text: '选择你的登记地址',
+                value: '0',
+                disabled: true,
+                selected: true,
+                class: '',
+                icon: '',
+            },
+            {
+                text: '南京',
+                value: '1',
+                disabled: false,
+                selected: false,
+                class: 'right circle',
+                icon: '../assets/image/nanjing.png',
+            },
+            {
+                text: '长沙',
+                value: '2',
+                disabled: false,
+                selected: false,
+                class: 'right circle',
+                icon: '../assets/image/changsha.png',
+            },
+            {
+                text: '无锡',
+                value: '3',
+                disabled: false,
+                selected: false,
+                class: 'right circle',
+                icon: '../assets/image/wuxi.png',
+            },
+        ],
+    }
+};

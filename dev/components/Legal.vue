@@ -38,7 +38,7 @@
                         <button
                             class="submit btn waves-effect waves-light"
                             type="submit"
-                            @click="handleClick"
+                            @click="submit"
                             >Submit
                             <i class="material-icons right">send</i>
                         </button>
@@ -50,59 +50,51 @@
 </template>
 
 <script>
-const spaceID = '4445w378ct2c';
-const contentful = require('contentful-management');
-const client = contentful.createClient({
-    accessToken: '8598a3a4635efaaee057684f5b6de9e85b5935be2a5d6114eebb6966ab263dec'
-});
+import { mapGetters, mapActions } from 'vuex';
 
-const fields = {
-    name: {
-        'en-US': 'hugo',
-    },
-    sex: {
-        'en-US': 1,
-    },
-    age: {
-        'en-US': 16,
-    },
-};
 
 export default {
-    methods: {
-        handleClick() {
-            client.getSpace(spaceID)
-                .then(space => {
-                    this.add(space);
-                    // delete(space);
-                    // search(space);
-
-                })
-                .then(e => console.log(e));
-        },
-        add(space) {
-            // add user
-            space.createEntry('user', {
-                fields,
-            });
-        },
-        delete(space) {
-            // delete user
-            space.getEntry('2NZmZ33gVaoMCmqyWK4qQE')
-                .then(entry => {
-                    entry.delete();
-                });
-        },
-        search(space) {
-            // search user
-            space.getEntries({
-                'content_type': 'user'
-            }).then(entries => {
-                entries.items.forEach(entry => {
-                    console.log(entry.fields);
-                });
-            });
-        }
+    computed: mapGetters([
+        'todoBasic',
+    ]),
+    methods: mapActions([
+        'submit',
+    ]),
+    // methods: {
+    //     handleSubmit() {
+    //         client.getSpace(spaceID)
+    //             .then(space => {
+    //                 // this.add(space);
+    //                 // console.log(fields);
+    //
+    //                 // this.delete(space);
+    //                 // this.search(space);
+    //             })
+    //             .then(e => console.log(e));
+    //     },
+    //     add(space) {
+    //         // add user
+    //         space.createEntry('user', {
+    //             fields,
+    //         });
+    //     },
+    //     delete(space) {
+    //         // delete user
+    //         space.getEntry('2NZmZ33gVaoMCmqyWK4qQE')
+    //             .then(entry => {
+    //                 entry.delete();
+    //             });
+    //     },
+    //     search(space) {
+    //         // search user
+    //         space.getEntries({
+    //             'content_type': 'user'
+    //         }).then(entries => {
+    //             entries.items.forEach(entry => {
+    //                 console.log(entry.fields);
+    //             });
+    //         });
+    //     }
     }
 }
 </script>
@@ -124,7 +116,7 @@ export default {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: local("Material Icons"), local("MaterialIcons-Regular"), url("../assets/font/material-design-icons/Material-Icons.woff") format("woff");
+    src: local("Material Icons"), local("MaterialIcons-Regular"), url("../assets/font/Material-Icons.woff") format("woff");
 }
 
 .material-icons {
