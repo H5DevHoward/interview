@@ -15,7 +15,7 @@
                     name="name"
                     type="text"
                     class="validate"
-                    v-model="todoBasic.name" />
+                    v-model="todoName" />
                 <label for="name">
                     <span>Name</span>
                     </br>
@@ -30,7 +30,7 @@
                     type="radio"
                     class="with-gap"
                     value="1"
-                    v-model="todoBasic.sex" />
+                    v-model.number="todoSex" />
                 <label for="sex-male">
                     <span>M</span>
                     </br>
@@ -42,7 +42,7 @@
                     type="radio"
                     class="with-gap"
                     value="0"
-                    v-model="todoBasic.sex" />
+                    v-model.number="todoSex" />
                 <label for="sex-female">
                     <span>F</span>
                     </br>
@@ -56,7 +56,7 @@
                     name="age"
                     type="number"
                     class="validate"
-                    v-model="todoBasic.age" />
+                    v-model="todoAge" />
                 <label for="age">
                     <span>Age</span>
                     </br>
@@ -75,7 +75,7 @@
                     name="nationality"
                     type="text"
                     class="validate"
-                    v-model="todoBasic.nationality" />
+                    v-model="todoNationality" />
                 <label for="nationality">
                     <span>Nationality</span>
                     </br>
@@ -88,7 +88,7 @@
                     name="registeredResidence"
                     type="text"
                     class="validate"
-                    v-model="todoBasic.registeredResidence" />
+                    v-model="todoRegisteredResidence" />
                 <label for="registeredResidence">
                     <span>Registered Residence</span>
                     </br>
@@ -107,7 +107,7 @@
                     name="eMailAddress"
                     type="email"
                     class="validate"
-                    v-model="todoBasic.eMailAddress" />
+                    v-model="todoEMailAddress" />
                 <label for="eMailAddress">
                     <span>E-mail Address</span>
                     </br>
@@ -120,7 +120,7 @@
                     name="phoneNumber"
                     type="tel"
                     class="validate"
-                    v-model="todoBasic.phoneNumber" />
+                    v-model="todoPhoneNumber" />
                 <label for="phoneNumber">
                     <span>Phone Number</span>
                     </br>
@@ -139,7 +139,7 @@
                     name="idNumber"
                     type="number"
                     class="validate"
-                    v-model="todoBasic.idNumber">
+                    v-model="todoIdNumber">
                 <label for="idNumber">
                     <span>ID NO.</span>
                     </br>
@@ -152,7 +152,7 @@
                     name="address"
                     type="text"
                     class="validate"
-                    v-model="todoBasic.address" />
+                    v-model="todoAddress" />
                 <label for="address">
                     <span>Address</span>
                     </br>
@@ -171,7 +171,7 @@
                     name="positionApplyingFor"
                     type="text"
                     class="validate"
-                    v-model="todoBasic.positionApplyingFor" />
+                    v-model="todoPositionApplyingFor" />
                 <label for="positionApplyingFor">
                     <span>Position Applying For</span>
                     </br>
@@ -184,7 +184,7 @@
                     name="exceptedSalay"
                     type="number"
                     class="validate"
-                    v-model="todoBasic.exceptedSalay" />
+                    v-model="todoExceptedSalay" />
                 <label for="exceptedSalay">
                     <span>Excepted Salary</span>
                     </br>
@@ -203,7 +203,7 @@
                     name="workExperience"
                     type="text"
                     class="validate"
-                    v-model="todoBasic.workExperience" />
+                    v-model="todoWorkExperience" />
                 <label for="workExperience">
                     <span>Work Experience</span>
                     </br>
@@ -216,7 +216,7 @@
                     name="recentJobSalay"
                     type="number"
                     class="validate"
-                    v-model="todoBasic.recentJobSalay" />
+                    v-model="todoRecentJobSalay" />
                 <label for="recentJobSalay">
                     <span>Recent Job Salary</span>
                     </br>
@@ -236,7 +236,7 @@
                     type="date"
                     class="datepicker"
                     ref="datepicker"
-                    v-model="todoBasic.startingData" />
+                    v-model="todoStartingData" />
                 <label for="startingData">
                     <span>Starting Date</span>
                     </br>
@@ -244,8 +244,8 @@
                 </label>
             </div>
             <div class="selectReg input-field col s5 offset-s1">
-                <select class="icons" ref="select" v-model="todoBasic.registeredAddress">
-                    <option v-for="(option, index) in todoBasic.options"
+                <select class="icons" ref="select" v-model="todoRegisteredAddress">
+                    <option v-for="(option, index) in todoOptions"
                         :key="index"
                         :class="option.class"
                         :disabled="option.disabled"
@@ -263,10 +263,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-    computed: mapGetters([
-        'todoBasic',
-    ]),
-    mounted: function(){
+    mounted() {
         $(this.$refs.datepicker).pickadate({
             selectMonths: true,
             selectYears: 30,
@@ -274,6 +271,157 @@ export default {
 
         $(this.$refs.select).material_select();
     },
+    // computed: mapGetters([
+    //     'todoBasic',
+    // ]),
+    // methods: {
+    //     updateName(e) {
+    //         this.$store.commit('updateName', e.target.value);
+    //     }
+    // }
+    computed: {
+        todoName: {
+            get() {
+                return this.$store.state.basic.name;
+            },
+            set(name) {
+                this.$store.commit('updateName', name);
+            },
+        },
+        todoSex: {
+            get() {
+                return this.$store.state.basic.sex;
+            },
+            set(sex) {
+                this.$store.commit('updateSex', sex);
+            },
+        },
+        todoAge: {
+            get() {
+                return this.$store.state.basic.age;
+            },
+            set(age) {
+                this.$store.commit('updateAge', age);
+            },
+        },
+        todoNationality: {
+            get() {
+                return this.$store.state.basic.nationality;
+            },
+            set(nationality) {
+                this.$store.commit('updateNationality', nationality);
+            },
+        },
+        todoRegisteredResidence: {
+            get() {
+                return this.$store.state.basic.registeredResidence;
+            },
+            set(registeredResidence) {
+                this.$store.commit('updateRegisteredResidence', registeredResidence);
+            },
+        },
+        todoEMailAddress: {
+            get() {
+                return this.$store.state.basic.eMailAddress;
+            },
+            set(eMailAddress) {
+                this.$store.commit('updateEMailAddress', eMailAddress);
+            },
+        },
+        todoPhoneNumber: {
+            get() {
+                return this.$store.state.basic.phoneNumber;
+            },
+            set(phoneNumber) {
+                this.$store.commit('updatePhoneNumber', phoneNumber);
+            },
+        },
+        todoIdNumber: {
+            get() {
+                return this.$store.state.basic.idNumber;
+            },
+            set(idNumber) {
+                this.$store.commit('updateIdNumber', idNumber);
+            },
+        },
+        todoAddress: {
+            get() {
+                return this.$store.state.basic.address;
+            },
+            set(address) {
+                this.$store.commit('updateAddress', address);
+            },
+        },
+        todoPositionApplyingFor: {
+            get() {
+                return this.$store.state.basic.positionApplyingFor;
+            },
+            set(positionApplyingFor) {
+                this.$store.commit('updatePositionApplyingFor', positionApplyingFor);
+            },
+        },
+        todoExceptedSalay: {
+            get() {
+                return this.$store.state.basic.exceptedSalay;
+            },
+            set(exceptedSalay) {
+                this.$store.commit('updateExceptedSalay', exceptedSalay);
+            },
+        },
+        todoWorkExperience: {
+            get() {
+                return this.$store.state.basic.workExperience;
+            },
+            set(workExperience) {
+                this.$store.commit('updateWorkExperience', workExperience);
+            },
+        },
+        todoRecentJobSalay: {
+            get() {
+                return this.$store.state.basic.recentJobSalay;
+            },
+            set(recentJobSalay) {
+                this.$store.commit('updateRecentJobSalay', recentJobSalay);
+            },
+        },
+        todoStartingData: {
+            get() {
+                return this.$store.state.basic.startingData;
+            },
+            set(startingData) {
+                this.$store.commit('updateStartingData', startingData);
+            },
+        },
+        todoRegisteredAddress: {
+            get() {
+                return this.$store.state.basic.registeredAddress;
+            },
+            set(registeredAddress) {
+                this.$store.commit('updateRegisteredAddress', registeredAddress);
+            },
+        },
+        todoOptions: {
+            get() {
+                return this.$store.state.basic.options;
+            },
+        },
+        // todoBasic() {
+        //     let basicObj = {};
+        //     const basic = this.$store.state.basic;
+        //     for (let [key, value] of Object.entries(basic)) {
+        //         this.$set(basicObj, key, value);
+        //     }
+        //     Object.assign(basicObj.prototype, {
+        //         get() {
+        //             return basic;
+        //         },
+        //         set(value) {
+        //             this.$store.commit('updateBasic', value);
+        //         }
+        //     });
+        //     return basicObj;
+        // }
+    }
 }
 </script>
 

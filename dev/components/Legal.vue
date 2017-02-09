@@ -38,7 +38,6 @@
                         <button
                             class="submit btn waves-effect waves-light"
                             type="submit"
-                            @click="submit"
                             >Submit
                             <i class="material-icons right">send</i>
                         </button>
@@ -54,12 +53,12 @@ import { mapGetters, mapActions } from 'vuex';
 
 
 export default {
-    computed: mapGetters([
-        'todoBasic',
-    ]),
-    methods: mapActions([
-        'submit',
-    ]),
+    // computed: mapGetters([
+    //     'todoBasic',
+    // ]),
+    // methods: mapActions([
+    //     'submit',
+    // ]),
     // methods: {
     //     handleSubmit() {
     //         client.getSpace(spaceID)
@@ -95,7 +94,7 @@ export default {
     //             });
     //         });
     //     }
-    }
+    // }
 }
 </script>
 
