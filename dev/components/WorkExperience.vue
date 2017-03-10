@@ -266,8 +266,8 @@ export default {
             selectMonths: true,
             selectYears: 30,
         });
-    }
-}
+    },
+};
 </script>
 
 <style lang="scss" scoped>

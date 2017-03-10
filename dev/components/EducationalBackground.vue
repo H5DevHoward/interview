@@ -75,7 +75,7 @@
 
 <script>
 export default {
-    mounted: function(){
+    mounted() {
         $(this.$refs.from).pickadate({
             selectMonths: true,
             selectYears: 30,
@@ -84,8 +84,8 @@ export default {
             selectMonths: true,
             selectYears: 30,
         });
-    }
-}
+    },
+};
 </script>
 
 <style lang="scss" scoped>

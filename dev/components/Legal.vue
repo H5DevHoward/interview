@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 
 
 export default {
@@ -95,7 +95,7 @@ export default {
     //         });
     //     }
     // }
-}
+};
 </script>
 
 <style lang="scss" scoped>
