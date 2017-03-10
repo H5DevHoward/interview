@@ -238,8 +238,10 @@
 </template>
 
 <script>
+import $ from 'materialize-css/bin/jquery-2.1.1.min.js';
+
 export default {
-    mounted: function(){
+    mounted() {
         $(this.$refs.from1).pickadate({
             selectMonths: true,
             selectYears: 30,
@@ -266,8 +268,8 @@ export default {
             selectMonths: true,
             selectYears: 30,
         });
-    }
-}
+    },
+};
 </script>
 
 <style lang="scss" scoped>

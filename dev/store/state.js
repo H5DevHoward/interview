@@ -49,5 +49,5 @@ export default {
                 icon: '../assets/image/wuxi.png',
             },
         ],
-    }
+    },
 };

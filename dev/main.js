@@ -4,7 +4,7 @@ import router from './router';
 import store from './store';
 import App from './components/App.vue';
 
-import 'materialize-css/bin/materialize.css';
+import 'materialize-css/sass/materialize.scss';
 import 'materialize-css/bin/jquery-2.1.1.min.js';
 import 'materialize-css';
 

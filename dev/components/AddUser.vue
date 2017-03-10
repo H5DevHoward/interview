@@ -31,8 +31,8 @@ export default {
         SpecialSkills,
         KnowType,
         Legal,
-    }
-}
+    },
+};
 </script>
 
 <style lang="scss">

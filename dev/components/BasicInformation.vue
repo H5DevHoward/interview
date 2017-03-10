@@ -260,7 +260,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import {mapGetters} from 'vuex';
+import $ from 'materialize-css/bin/jquery-2.1.1.min.js';
 
 export default {
     mounted() {
@@ -421,8 +422,8 @@ export default {
         //     });
         //     return basicObj;
         // }
-    }
-}
+    },
+};
 </script>
 
 <style lang="scss" scoped>

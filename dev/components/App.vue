@@ -8,7 +8,7 @@
 
 <script>
 export default {
-}
+};
 </script>
 
 <style lang="scss" rel="stylesheet/scss" src="../style/style.scss"></style>
