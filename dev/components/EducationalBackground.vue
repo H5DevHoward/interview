@@ -74,8 +74,6 @@
 </template>
 
 <script>
-import $ from 'materialize-css/bin/jquery-2.1.1.min.js';
-
 export default {
     mounted() {
         $(this.$refs.from).pickadate({

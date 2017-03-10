@@ -260,8 +260,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
-import $ from 'materialize-css/bin/jquery-2.1.1.min.js';
+import {mapGetters, mapActions} from 'vuex';
 
 export default {
     mounted() {
@@ -272,14 +271,6 @@ export default {
 
         $(this.$refs.select).material_select();
     },
-    // computed: mapGetters([
-    //     'todoBasic',
-    // ]),
-    // methods: {
-    //     updateName(e) {
-    //         this.$store.commit('updateName', e.target.value);
-    //     }
-    // }
     computed: {
         todoName: {
             get() {

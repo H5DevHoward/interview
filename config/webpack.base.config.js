@@ -53,14 +53,14 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+                    'css-loader',
                 ],
             },
             {
                 test: /\.s[a|c]ss$/,
                 use: [
                     'style-loader',
-                    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+                    'css-loader',
                     {
                         loader: 'postcss-loader',
                         options: postcssConfig,
@@ -102,9 +102,9 @@ module.exports = {
                         camelCase: true,
                     },
                 },
-                eslint: {
-                    configFile: path.join(process.cwd(), '.eslintrc'),
-                },
+                // eslint: {
+                //     configFile: path.join(process.cwd(), '.eslintrc'),
+                // },
             },
         }),
     ],

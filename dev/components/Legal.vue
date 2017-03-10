@@ -38,6 +38,7 @@
                         <button
                             class="submit btn waves-effect waves-light"
                             type="submit"
+                            @click="submit"
                             >Submit
                             <i class="material-icons right">send</i>
                         </button>
@@ -56,9 +57,9 @@ export default {
     // computed: mapGetters([
     //     'todoBasic',
     // ]),
-    // methods: mapActions([
-    //     'submit',
-    // ]),
+    methods: mapActions([
+        'submit',
+    ]),
     // methods: {
     //     handleSubmit() {
     //         client.getSpace(spaceID)
@@ -94,7 +95,6 @@ export default {
     //             });
     //         });
     //     }
-    // }
 };
 </script>
 
@@ -110,7 +110,6 @@ export default {
 .td-second .s12 span {
     font-size: 30px;
 }
-
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;

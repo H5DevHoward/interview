@@ -6,117 +6,99 @@ const contentful = require('contentful-management');
 const client = contentful.createClient({accessToken});
 
 export default {
-    // [types.UPDATEBASIC] (state, payload) {
-    //     console.log(payload);
-    //     state.name = payload.name;
-    //     state.sex = payload.sex;
-    //     state.age = payload.age;
-    //     state.nationality = payload.nationality;
-    //     state.registeredResidence = payload.registeredResidence;
-    //     state.eMailAddress = payload.eMailAddress;
-    //     state.phoneNumber = payload.phoneNumber;
-    //     state.idNumber = payload.idNumber;
-    //     state.address = payload.address;
-    //     state.positionApplyingFor = payload.positionApplyingFor;
-    //     state.exceptedSalay = payload.exceptedSalay;
-    //     state.workExperience = payload.workExperience;
-    //     state.recentJobSalay = payload.recentJobSalay;
-    //     state.startingData = payload.startingData;
-    //     state.registeredAddress= payload.registeredAddress;
-    // },
     updateName(state, payload) {
-        state.name = payload;
+        state.basic.name = payload;
     },
     updateSex(state, payload) {
-        state.sex = payload;
+        state.basic.sex = payload;
     },
     updateAge(state, payload) {
-        state.age = payload;
+        state.basic.age = payload;
     },
     updateNationality(state, payload) {
-        state.nationality = payload;
+        state.basic.nationality = payload;
     },
     updateRegisteredResidence(state, payload) {
-        state.registeredResidence = payload;
+        state.basic.registeredResidence = payload;
     },
     updateEMailAddress(state, payload) {
-        state.eMailAddress = payload;
+        state.basic.eMailAddress = payload;
     },
     updatePhoneNumber(state, payload) {
-        state.phoneNumber = payload;
+        state.basic.phoneNumber = payload;
     },
     updateIdNumber(state, payload) {
-        state.idNumber = payload;
+        state.basic.idNumber = payload;
     },
     updateAddress(state, payload) {
-        state.address = payload;
+        state.basic.address = payload;
     },
     updatePositionApplyingFor(state, payload) {
-        state.positionApplyingFor = payload;
+        state.basic.positionApplyingFor = payload;
     },
     updateExceptedSalay(state, payload) {
-        state.exceptedSalay = payload;
+        state.basic.exceptedSalay = payload;
     },
     updateWorkExperience(state, payload) {
-        state.workExperience = payload;
+        state.basic.workExperience = payload;
     },
     updateRecentJobSalay(state, payload) {
-        state.recentJobSalay = payload;
+        state.basic.recentJobSalay = payload;
     },
     updateStartingData(state, payload) {
-        state.startingData = payload;
+        state.basic.startingData = payload;
     },
     updateRegisteredAddress(state, payload) {
-        state.registeredAddress = payload;
+        state.basic.registeredAddress = payload;
     },
 
     [types.SUBMIT] (state) {
         console.log('submit...');
         const fields = {
             name: {
-                'en-US': state.name,
+                'en-US': state.basic.name,
             },
             sex: {
-                'en-US': state.sex,
+                'en-US': state.basic.sex,
             },
             age: {
-                'en-US': state.age,
+                'en-US': state.basic.age,
             },
             nationality: {
-                'en-US': state.nationality,
+                'en-US': state.basic.nationality,
             },
             registeredResidence: {
-                'en-US': state.registeredResidence,
+                'en-US': state.basic.registeredResidence,
             },
             eMailAddress: {
-                'en-US': state.eMailAddress,
+                'en-US': state.basic.eMailAddress,
             },
             phoneNumber: {
-                'en-US': state.phoneNumber,
+                'en-US': state.basic.phoneNumber,
             },
             idNumber: {
-                'en-US': state.idNumber,
+                'en-US': state.basic.idNumber,
             },
             address: {
-                'en-US': state.address,
+                'en-US': state.basic.address,
             },
             positionApplyingFor: {
-                'en-US': state.positionApplyingFor,
+                'en-US': state.basic.positionApplyingFor,
             },
             exceptedSalay: {
-                'en-US': state.exceptedSalay,
+                'en-US': state.basic.exceptedSalay,
             },
             workExperience: {
-                'en-US': state.workExperience,
+                'en-US': state.basic.workExperience,
             },
             recentJobSalay: {
-                'en-US': state.recentJobSalay,
+                'en-US': state.basic.recentJobSalay,
             },
             startingData: {
-                'en-US': state.startingData,
+                'en-US': state.basic.startingData,
             },
             registeredAddress: {
-                'en-US': state.registeredAddress,
+                'en-US': state.basic.registeredAddress,
             },
         };
 
