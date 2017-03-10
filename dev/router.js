@@ -2,8 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 
-const LogIn = resolve => require(['./components/LogIn.vue'], resolve);
-const AddUser = resolve => require(['./components/AddUser.vue'], resolve);
+// const LogIn = resolve => require(['./components/LogIn.vue'], resolve);
+// const AddUser = resolve => require(['./components/AddUser.vue'], resolve);
+
+import LogIn from './components/LogIn.vue';
+import AddUser from './components/AddUser.vue';
 
 Vue.use(VueRouter);
 

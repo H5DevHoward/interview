@@ -1,11 +1,13 @@
 const webpack = require('webpack');
+const path = require('path');
 const postcssConfig = require('./postcss.config');
 
 
 module.exports = {
-    entry: './dev/main.js',
+    context: path.join(process.cwd(), 'dev'),
+    entry: './main.js',
     output: {
-        path: './dist',
+        path: path.join(process.cwd(), 'dist'),
         filename: '[name].js',
     },
     module: {
@@ -52,5 +54,9 @@ module.exports = {
             scss: 'style!css!postcss!sass',
         },
         postcss: postcssConfig.plugins,
+        cssModules: {
+            localIdentName: '[path][name]---[local]---[hash:base64:5]',
+            camelCase: true,
+        },
     },
 };
