@@ -49,11 +49,11 @@ export default {
         state.basic.startingData = payload;
     },
     updateRegisteredAddress(state, payload) {
-        state.basic.registeredAddress = payload;
+        // state.basic.registeredAddress = payload;
     },
 
     [types.SUBMIT] (state) {
-        console.log('submit...');
+        console.log('submit...', state.basic.registeredAddress);
         const fields = {
             name: {
                 'en-US': state.basic.name,

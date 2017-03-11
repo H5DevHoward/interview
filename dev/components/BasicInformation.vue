@@ -278,7 +278,6 @@ export default {
             selectMonths: true,
             selectYears: 30,
         });
-
         $(this.$refs.select).material_select();
     },
     computed: {
@@ -287,7 +286,6 @@ export default {
                 return this.$store.state.basic.name;
             },
             set(name) {
-                console.log(name);
                 this.$store.commit('updateName', name);
             },
         },
@@ -399,8 +397,9 @@ export default {
             get() {
                 return this.$store.state.basic.registeredAddress;
             },
-            set(registeredAddress) {
-                console.log('111', registeredAddress);
+            set(value) {
+                const registeredAddress = this.todoOptions[parseInt(value, 10)].text;
+                console.log(registeredAddress);
                 this.$store.commit('updateRegisteredAddress', registeredAddress);
             },
         },
@@ -408,27 +407,7 @@ export default {
             get() {
                 return this.$store.state.basic.options;
             },
-            set(registeredAddress) {
-                console.log('222', registeredAddress);
-                // this.$store.commit('updateRegisteredAddress', registeredAddress);
-            },
         },
-        // todoBasic() {
-        //     let basicObj = {};
-        //     const basic = this.$store.state.basic;
-        //     for (let [key, value] of Object.entries(basic)) {
-        //         this.$set(basicObj, key, value);
-        //     }
-        //     Object.assign(basicObj.prototype, {
-        //         get() {
-        //             return basic;
-        //         },
-        //         set(value) {
-        //             this.$store.commit('updateBasic', value);
-        //         }
-        //     });
-        //     return basicObj;
-        // }
     },
 };
 </script>
