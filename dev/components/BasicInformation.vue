@@ -137,7 +137,7 @@
                 <input
                     id="idNumber"
                     name="idNumber"
-                    type="number"
+                    type="text"
                     class="validate"
                     v-model="todoIdNumber">
                 <label for="idNumber">
@@ -182,7 +182,7 @@
                 <input
                     id="exceptedSalay"
                     name="exceptedSalay"
-                    type="number"
+                    type="text"
                     class="validate"
                     v-model="todoExceptedSalay" />
                 <label for="exceptedSalay">
@@ -244,7 +244,7 @@
                 </label>
             </div>
             <div class="selectReg input-field col s5 offset-s1">
-                <select class="icons" ref="select" v-model="todoRegisteredAddress">
+                <select class="icons" name="registeredAddress" ref="select" v-model="todoRegisteredAddress">
                     <option v-for="(option, index) in todoOptions"
                         :key="index"
                         :class="option.class"
@@ -263,6 +263,16 @@
 import {mapGetters, mapActions} from 'vuex';
 
 export default {
+    data() {
+        return {
+            nameMap: {
+                name: {
+                    compute: 'todoName',
+                    active: 'updateName',
+                },
+            },
+        };
+    },
     mounted() {
         $(this.$refs.datepicker).pickadate({
             selectMonths: true,
@@ -277,6 +287,7 @@ export default {
                 return this.$store.state.basic.name;
             },
             set(name) {
+                console.log(name);
                 this.$store.commit('updateName', name);
             },
         },
@@ -389,12 +400,17 @@ export default {
                 return this.$store.state.basic.registeredAddress;
             },
             set(registeredAddress) {
+                console.log('111', registeredAddress);
                 this.$store.commit('updateRegisteredAddress', registeredAddress);
             },
         },
         todoOptions: {
             get() {
                 return this.$store.state.basic.options;
+            },
+            set(registeredAddress) {
+                console.log('222', registeredAddress);
+                // this.$store.commit('updateRegisteredAddress', registeredAddress);
             },
         },
         // todoBasic() {
