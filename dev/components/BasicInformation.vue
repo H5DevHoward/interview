@@ -214,7 +214,7 @@
                 <input
                     id="recentJobSalay"
                     name="recentJobSalay"
-                    type="number"
+                    type="text"
                     class="validate"
                     v-model="todoRecentJobSalay" />
                 <label for="recentJobSalay">
@@ -260,19 +260,19 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex';
+// import {mapGetters, mapActions} from 'vuex';
 
 export default {
-    data() {
-        return {
-            nameMap: {
-                name: {
-                    compute: 'todoName',
-                    active: 'updateName',
-                },
-            },
-        };
-    },
+    // data() {
+    //     return {
+    //         nameMap: {
+    //             name: {
+    //                 compute: 'todoName',
+    //                 active: 'updateName',
+    //             },
+    //         },
+    //     };
+    // },
     mounted() {
         $(this.$refs.datepicker).pickadate({
             selectMonths: true,
@@ -396,11 +396,6 @@ export default {
         todoRegisteredAddress: {
             get() {
                 return this.$store.state.basic.registeredAddress;
-            },
-            set(value) {
-                const registeredAddress = this.todoOptions[parseInt(value, 10)].text;
-                console.log(registeredAddress);
-                this.$store.commit('updateRegisteredAddress', registeredAddress);
             },
         },
         todoOptions: {

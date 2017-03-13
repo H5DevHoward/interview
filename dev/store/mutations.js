@@ -6,6 +6,7 @@ const contentful = require('contentful-management');
 const client = contentful.createClient({accessToken});
 
 export default {
+    // basic
     updateName(state, payload) {
         state.basic.name = payload;
     },
@@ -48,18 +49,38 @@ export default {
     updateStartingData(state, payload) {
         state.basic.startingData = payload;
     },
-    updateRegisteredAddress(state, payload) {
-        // state.basic.registeredAddress = payload;
+    // education
+    updateEduFrom(state, payload) {
+        state.education.from = payload;
+    },
+    updateEduTo(state, payload) {
+        state.education.to = payload;
+    },
+    updateMajor(state, payload) {
+        state.education.major = payload;
+    },
+    updateSchool(state, payload) {
+        state.education.graduatedFrom = payload;
+    },
+    updateDiploma(state, payload) {
+        state.education.diploma = payload;
+    },
+    updateCet(state, payload) {
+        state.education.english = payload;
     },
 
     [types.SUBMIT] (state) {
-        console.log('submit...', state.basic.registeredAddress);
+        console.log('submit...');
+        const index = $('.selectReg li.active').index();
+        state.basic.registeredAddress = state.basic.options[index === -1 ? 0 : index].text;
+
         const fields = {
+            // basic
             name: {
                 'en-US': state.basic.name,
             },
             sex: {
-                'en-US': state.basic.sex,
+                'en-US': state.basic.sex ? '男' : '女',
             },
             age: {
                 'en-US': state.basic.age,
@@ -100,7 +121,29 @@ export default {
             registeredAddress: {
                 'en-US': state.basic.registeredAddress,
             },
+            // education
+            from: {
+                'en-US': state.education.from,
+            },
+            to: {
+                'en-US': state.education.to,
+            },
+            major: {
+                'en-US': state.education.major,
+            },
+            graduatedFrom: {
+                'en-US': state.education.graduatedFrom,
+            },
+            diploma: {
+                'en-US': state.education.diploma,
+            },
+            english: {
+                'en-US': state.education.english,
+            },
         };
+
+        console.log(fields);
+
 
         client.getSpace(spaceID)
             .then(space => {

@@ -60,41 +60,6 @@ export default {
     methods: mapActions([
         'submit',
     ]),
-    // methods: {
-    //     handleSubmit() {
-    //         client.getSpace(spaceID)
-    //             .then(space => {
-    //                 // this.add(space);
-    //                 // console.log(fields);
-    //
-    //                 // this.delete(space);
-    //                 // this.search(space);
-    //             })
-    //             .then(e => console.log(e));
-    //     },
-    //     add(space) {
-    //         // add user
-    //         space.createEntry('user', {
-    //             fields,
-    //         });
-    //     },
-    //     delete(space) {
-    //         // delete user
-    //         space.getEntry('2NZmZ33gVaoMCmqyWK4qQE')
-    //             .then(entry => {
-    //                 entry.delete();
-    //             });
-    //     },
-    //     search(space) {
-    //         // search user
-    //         space.getEntries({
-    //             'content_type': 'user'
-    //         }).then(entries => {
-    //             entries.items.forEach(entry => {
-    //                 console.log(entry.fields);
-    //             });
-    //         });
-    //     }
 };
 </script>
 

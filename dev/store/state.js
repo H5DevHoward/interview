@@ -50,4 +50,12 @@ export default {
             },
         ],
     },
+    education: {
+        from: '',
+        to: '',
+        major: '',
+        graduatedFrom: '',
+        diploma: '',
+        english: '',
+    },
 };
